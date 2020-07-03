@@ -1,0 +1,32 @@
+<%- include("../partials/header") %>
+
+<div class="container">
+    <header class="jumbotron">
+        <div class="container">
+            <h1>Welcome to Naturely</h1>
+            <p>A place to post your nature clicks!</p>
+            <p>
+                <a class="btn btn-primary btn-lg" href="/snaps/new">Add  <i class="camera retro icon"></i></a>
+            </p>
+        </div>
+    </header>
+
+    <div class="row text-center" style="display: flex; flex-wrap: wrap;">
+        <% for(var i = 0; i<snaps.length; i++){ %>
+            <div class="col-md-3 col-sm-6">
+                <div class="thumbnail card">
+                    <a href="/snaps/<%= snaps[i]._id %>">
+                        <img src=" <%= snaps[i].image %> " class="snap-index card-image hover-image" alt="<%= snaps[i].name %>">
+                        <div class="caption card-text overlay">
+                            <div class="content">
+                                <h4> <%= snaps[i].name %></h4>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        <% } %>
+    </div>
+
+</div>
+<%- include("../partials/footer") %>

@@ -1,0 +1,62 @@
+<%- include ("../partials/header") %>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <p class="lead">Naturely</p>
+            <div class="list-group">
+                <li class="list-group-item active">Info 1</li>
+                <li class="list-group-item">Info 2</li>
+                <li class="list-group-item">Info 3</li>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="thumbnail" id="no-padding">
+                <img src="<%= snap.image %>" class="image-responsive">
+                <div class="caption-full">
+                    <h4><a href=""><%=snap.name%></a></h4>
+                    <p><%= snap.description %></p>
+                    <p>Submitted By <%= snap.author.username %></p>
+
+                    <% if(currentUser && snap.author.id.equals(currentUser._id)){ %>
+                        <a href="/snaps/<%= snap._id %>/edit" class="btn btn-warning">Edit</a>
+                        <form id="delete-form" action="/snaps/<%= snap._id %>?_method=DELETE" method="POST">
+                            <button class="btn btn-danger">Delete</button>
+                        </form>
+                    <% } %>
+                </div>
+            </div>
+
+            <div class="well">
+                <div class="text-right">
+                    <a href="/snaps/<%= snap._id %>/comments/new" class="btn btn-success">Add New Comment</a>
+                </div>
+                <hr>
+                <% snap.comments.forEach(function(comment){ %>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <strong><%= comment.author.username %></strong>
+                            <span class="pull-right">10 days ago</span>
+                            <p>
+                                <%= comment.text %>
+                            </p>
+
+                            <% if(currentUser && (comment.author.id.equals(currentUser._id))){ %>
+                                <a href="/snaps/<%= snap._id %>/comments/<%= comment._id %>/edit" class="btn btn-xs btn-warning">Edit</a>
+                            <% } %>
+
+                            <% if(currentUser && (comment.author.id.equals(currentUser._id) || snap.author.id.equals(currentUser._id))){ %>
+                                <form id="delete-form" action="/snaps/<%= snap._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
+                                    <input type="submit" class="btn btn-xs btn-danger" value="Delete">
+                                </form>
+                            <% } %>
+
+                        </div>
+                    </div>
+                <% }); %>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include ("../partials/footer") %>     

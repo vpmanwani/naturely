@@ -1,0 +1,107 @@
+.thumbnail img {
+    width: 100%;
+}
+
+#no-padding{
+    padding: 0;
+}
+
+.thumbnail .caption-full{
+    padding: 9px;
+}
+
+#delete-form{
+    display:inline;
+}
+
+.thumbnail .snap-index{
+    height: 250px;
+    width: 100%;
+}
+
+.icon-link{
+    text-decoration: none;
+    color: inherit;
+}
+
+.icon-link:hover{
+    text-decoration: none;
+    color: inherit;
+}
+
+.icon-link:visited{
+    text-decoration: none;
+    color: inherit;
+}
+
+.card {
+    border-radius: 5px;
+    background: white;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.9);
+    font-family: roboto;
+    text-align: center;
+}
+
+.card-text {
+    grid-area: text;
+}
+
+.card-image {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;;
+}
+
+.card-text {
+    margin: 10px;
+}
+
+.card-text p {
+    color: grey;
+    font-size:15px;
+    font-weight: 300;
+}
+
+.card:hover {
+    transform: scale(1.15);
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.6);
+}
+.card {
+
+...
+    transition: 0.5s ease;
+    cursor: pointer;
+    margin:30px;
+}
+
+.hover-image {
+    display: block;
+    width: 80%;
+    height: auto;
+}
+
+.content {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    color: #fff;
+    opacity: 0.6;
+    text-transform: uppercase;
+    font-size: 28px;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: 90%;
+    width: 90%;
+    opacity: 0;
+    transition: .5s ease;
+}
+
+.overlay:hover {
+    opacity: 1;
+} 
